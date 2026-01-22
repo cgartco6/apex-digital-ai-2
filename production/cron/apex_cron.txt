@@ -1,0 +1,2 @@
+*/30 * * * * python3 live.py
+0 2 * * * bash production/backup/backup.sh
