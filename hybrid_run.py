@@ -3,6 +3,8 @@ from hybrid.governance.override import status
 from api.creative_routes import creative_api
 from api.compliance_routes import compliance_api
 from api.marketplace_routes import marketplace_api
+from api.growth_routes import growth_api
+app.register_blueprint(growth_api, url_prefix="/api/growth")
 
 app.register_blueprint(marketplace_api, url_prefix="/api/marketplace")
 app.register_blueprint(compliance_api, url_prefix="/api/compliance")
