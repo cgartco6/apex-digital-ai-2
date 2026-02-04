@@ -2,6 +2,9 @@ from hybrid.admin.dashboard import Dashboard
 from hybrid.governance.override import status
 from api.creative_routes import creative_api
 from api.compliance_routes import compliance_api
+from api.marketplace_routes import marketplace_api
+
+app.register_blueprint(marketplace_api, url_prefix="/api/marketplace")
 app.register_blueprint(compliance_api, url_prefix="/api/compliance")
 
 app.register_blueprint(creative_api, url_prefix="/api/creative")
