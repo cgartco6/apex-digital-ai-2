@@ -13,9 +13,25 @@ CREATE TABLE payments (
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE audit_logs (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  action TEXT,
-  actor VARCHAR(100),
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+CREATE TABLE audit_logs (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT,
+    agency_id INT,
+    action VARCHAR(255),
+    details TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE roles (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(50)
+);
+
+CREATE TABLE permissions (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    role_id INT,
+    action VARCHAR(255)
+);
+
+ALTER TABLE clients ADD COLUMN role_id INT DEFAULT 3; -- 3 = client
